@@ -12291,6 +12291,8 @@ self: super: with self; {
 
   periodiq = callPackage ../development/python-modules/periodiq { };
 
+  perplexity = callPackage ../development/python-modules/perplexity { };
+
   permissionedforms = callPackage ../development/python-modules/permissionedforms { };
 
   persim = callPackage ../development/python-modules/persim { };

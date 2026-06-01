@@ -20,7 +20,7 @@
   httpx-aiohttp,
 
   # tests
-  versionCheckHook,
+  pytestCheckHook,
 }:
 
 buildPythonPackage (finalAttrs: {
@@ -55,14 +55,15 @@ buildPythonPackage (finalAttrs: {
             httpx-aiohttp
         ];
     };
-    nativeCheckInputs = [
-        versionCheckHook
-    ];
+
+    pythonRelaxDeps = true;
+
     versionCheckProgramArg = "version";
     pythonImportsCheck = [ "perplexity" ];
     
     meta = {
         description = "The official Python library for the perplexity API";
+        mainProgram = "perplexity";
         homepage = "https://github.com/perplexityai/perplexity-py";
         changelog = "https://github.com/perplexityai/perplexity-py/releases/tag/${finalAttrs.src.tag}";
         license = lib.licenses.asl20;
