@@ -2,73 +2,64 @@
   lib,
   buildPythonPackage,
   fetchFromGitHub,
-
-  # build-system
-  hatchling,
   hatch-fancy-pypi-readme,
-
-  # dependencies
-  httpx,
-  pydantic,
-  typing-extensions,
+  hatchling,
   anyio,
   distro,
+  httpx,
+  pydantic,
   sniffio,
-
-  # optional-dependencies
+  typing-extensions,
   aiohttp,
   httpx-aiohttp,
-
-  # tests
-  pytestCheckHook,
+  nix-update-script,
 }:
 
 buildPythonPackage (finalAttrs: {
-    pname = "perplexityai";
-    version = "0.36.0";
-    pyproject = true;
+  pname = "perplexity";
+  version = "0.36.0";
+  pyproject = true;
+  __structuredAttrs = true;
 
-    src = fetchFromGitHub {
-        owner = "perplexityai";
-        repo = "perplexity-py";
-        tag = "v${finalAttrs.version}";
-        hash = "sha256-3XReAbfJ1ysdqXfAHiuxgpVBZsJCIL+h56iB1eSzp54=";
-    };
+  src = fetchFromGitHub {
+    owner = "perplexityai";
+    repo = "perplexity-py";
+    tag = "v${finalAttrs.version}";
+    hash = "sha256-3XReAbfJ1ysdqXfAHiuxgpVBZsJCIL+h56iB1eSzp54=";
+  };
 
-    build-system = [
-        hatchling
-        hatch-fancy-pypi-readme
+  build-system = [
+    hatch-fancy-pypi-readme
+    hatchling
+  ];
+
+  dependencies = [
+    anyio
+    distro
+    httpx
+    pydantic
+    sniffio
+    typing-extensions
+  ];
+
+  optional-dependencies = {
+    aiohttp = [
+      aiohttp
+      httpx-aiohttp
     ];
+  };
 
-    dependencies = [
-        httpx
-        pydantic
-        typing-extensions
-        anyio
-        distro
-        sniffio
-    ];
+  pythonImportsCheck = [
+    "perplexity"
+  ];
 
-    optional-dependencies = {
-        aiohttp = [
-            aiohttp
-            httpx-aiohttp
-        ];
-    };
+  passthru.updateScript = nix-update-script { };
 
-    pythonRelaxDeps = true;
-
-    versionCheckProgramArg = "version";
-    pythonImportsCheck = [ "perplexity" ];
-    
-    meta = {
-        description = "The official Python library for the perplexity API";
-        mainProgram = "perplexity";
-        homepage = "https://github.com/perplexityai/perplexity-py";
-        changelog = "https://github.com/perplexityai/perplexity-py/releases/tag/${finalAttrs.src.tag}";
-        license = lib.licenses.asl20;
-        maintainers = with lib.maintainers; [
-            LodWKobku
-        ];
-    };
+  meta = {
+    description = "";
+    homepage = "https://github.com/perplexityai/perplexity-py";
+    changelog = "https://github.com/perplexityai/perplexity-py/blob/${finalAttrs.src.rev}/CHANGELOG.md";
+    license = lib.licenses.asl20;
+    maintainers = with lib.maintainers; [ LodWKobku ];
+  };
 })
