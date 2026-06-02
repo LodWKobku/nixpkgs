@@ -12,7 +12,6 @@
   typing-extensions,
   aiohttp,
   httpx-aiohttp,
-  nix-update-script,
 }:
 
 buildPythonPackage (finalAttrs: {
@@ -28,10 +27,18 @@ buildPythonPackage (finalAttrs: {
     hash = "sha256-3XReAbfJ1ysdqXfAHiuxgpVBZsJCIL+h56iB1eSzp54=";
   };
 
+  postPatch = ''
+    # Remove version requirement of hatchling
+    substituteInPlace pyproject.toml \
+      --replace-fail 'hatchling==1.26.3' 'hatchling'
+  '';
+
   build-system = [
     hatch-fancy-pypi-readme
     hatchling
   ];
+
+  pythonRelaxDeps = true;
 
   dependencies = [
     anyio
@@ -52,8 +59,6 @@ buildPythonPackage (finalAttrs: {
   pythonImportsCheck = [
     "perplexity"
   ];
-
-  passthru.updateScript = nix-update-script { };
 
   meta = {
     description = "";
