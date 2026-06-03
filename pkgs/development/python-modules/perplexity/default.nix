@@ -2,19 +2,27 @@
   lib,
   buildPythonPackage,
   fetchFromGitHub,
+
+  # Build system
   hatch-fancy-pypi-readme,
   hatchling,
+
+  # Dependencies
   anyio,
   distro,
-  dirty-equals,
   httpx,
   pydantic,
-  respx,
   sniffio,
-  time-machine,
   typing-extensions,
+
+  # Optional dependencies
   aiohttp,
   httpx-aiohttp,
+
+  # Native check inputs
+  dirty-equals,
+  respx,
+  time-machine,
   pytestCheckHook,
   pytest-asyncio
 }:
