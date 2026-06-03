@@ -6,12 +6,17 @@
   hatchling,
   anyio,
   distro,
+  dirty-equals,
   httpx,
   pydantic,
+  respx,
   sniffio,
+  time-machine,
   typing-extensions,
   aiohttp,
   httpx-aiohttp,
+  pytestCheckHook,
+  pytest-asyncio
 }:
 
 buildPythonPackage (finalAttrs: {
@@ -28,9 +33,10 @@ buildPythonPackage (finalAttrs: {
   };
 
   postPatch = ''
-    # Remove version requirement of hatchling
+    # Remove version requirement of hatchling and fix package tests
     substituteInPlace pyproject.toml \
-      --replace-fail 'hatchling==1.26.3' 'hatchling'
+      --replace-fail 'hatchling==1.26.3' 'hatchling' \
+      --replace-fail "-n auto" ""
   '';
 
   build-system = [
@@ -56,8 +62,20 @@ buildPythonPackage (finalAttrs: {
     ];
   };
 
+  # Tests
   pythonImportsCheck = [
     "perplexity"
+  ];
+
+  nativeCheckInputs = [
+    dirty-equals
+    pytestCheckHook
+    pytest-asyncio
+    respx
+    time-machine
+  ];
+  enabledTestPaths = [
+    "tests/"
   ];
 
   meta = {
