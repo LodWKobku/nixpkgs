@@ -79,7 +79,7 @@ buildPythonPackage (finalAttrs: {
   ];
 
   meta = {
-    description = "";
+    description = "The official Python library for the perplexity API";
     homepage = "https://github.com/perplexityai/perplexity-py";
     changelog = "https://github.com/perplexityai/perplexity-py/blob/${finalAttrs.src.rev}/CHANGELOG.md";
     license = lib.licenses.asl20;
