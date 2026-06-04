@@ -3770,6 +3770,8 @@ self: super: with self; {
 
   deeptoolsintervals = callPackage ../development/python-modules/deeptoolsintervals { };
 
+  deaptutor = callPackage ../development/python-modules/deaptutor { };
+
   deepwave = callPackage ../development/python-modules/deepwave { };
 
   deezer-py = callPackage ../development/python-modules/deezer-py { };
