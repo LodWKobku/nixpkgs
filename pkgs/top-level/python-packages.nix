@@ -11284,6 +11284,8 @@ self: super: with self; {
 
   oath = callPackage ../development/python-modules/oath { };
 
+  oauth-cli-kit = callPackage ../development/python-modules/oauth-cli-kit { };
+
   oathtool = callPackage ../development/python-modules/oathtool { };
 
   oauth2-client = callPackage ../development/python-modules/oauth2-client { };
