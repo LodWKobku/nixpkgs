@@ -36,6 +36,7 @@
   rich,
   prompt-toolkit,
   perplexity,
+  oauth-cli-kit,
 
   ## server
   fastapi,
@@ -83,7 +84,6 @@ buildPythonPackage (finalAttrs: {
     # slackify-markdown
     # qq-botpy
     # pocketbase
-    # oauth-cli-kit
     # llama-index-retrievers-bm25
 
     dependencies = [
@@ -116,6 +116,7 @@ buildPythonPackage (finalAttrs: {
         rich
         prompt-toolkit
         perplexity
+        oauth-cli-kit
 
         # Server
         fastapi
