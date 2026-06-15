@@ -2186,6 +2186,8 @@ self: super: with self; {
 
   blurhash-python = callPackage ../development/python-modules/blurhash-python { };
 
+  bm25s = callPackage ../development/python-modules/bm25s { };
+
   bme280spi = callPackage ../development/python-modules/bme280spi { };
 
   bme680 = callPackage ../development/python-modules/bme680 { };
@@ -9094,7 +9096,7 @@ self: super: with self; {
       { };
 
   llama-index-retrievers-bm25 = callPackage ../development/python-modules/llama-index-retrievers-bm25 { };
-  
+
   llama-index-vector-stores-chroma =
     callPackage ../development/python-modules/llama-index-vector-stores-chroma
       { };
