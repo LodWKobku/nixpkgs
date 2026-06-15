@@ -5,7 +5,6 @@
   setuptools,
   numpy,
   scipy,
-  trec_eval,
 }:
 
 buildPythonPackage (finalAttrs: rec {
@@ -25,17 +24,8 @@ buildPythonPackage (finalAttrs: rec {
     setuptools
   ];
 
-  nativeBuildInputs = [ trec_eval ];
-
-  CFLAGS = "-std=gnu89 -Wno-incompatible-pointer-types";
-
-  patchPhase = ''
-    mkdir -p trec_eval
-    cp -r ${trec_eval.src}/* trec_eval/
-    substituteInPlace setup.py \
-      --replace "extra_compile_args=['-g', '-Wall', '-O3']" \
-      "extra_compile_args=['-g', '-Wall', '-O3', '-Wno-incompatible-pointer-types']"
-  '';
+  # trec_eval which is included in source code requres older C standard
+  CFLAGS = "-std=gnu89";
 
   dependencies = [
     numpy
