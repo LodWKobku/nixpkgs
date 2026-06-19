@@ -55,7 +55,7 @@
 }:
 
 buildPythonPackage (finalAttrs: {
-    pname = "deaptutor";
+    pname = "deeptutor";
     version = "1.4.2";
     pyproject = true;
 
@@ -124,7 +124,7 @@ buildPythonPackage (finalAttrs: {
         versionCheckHook
     ];
     versionCheckProgramArg = "version";
-    pythonImportsCheck = [ "deaptutor" ];
+    pythonImportsCheck = [ "deeptutor" ];
 
     meta = {
         description = "Agent-native, Open-sourced Personalized Tutoring";
