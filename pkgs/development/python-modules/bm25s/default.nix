@@ -90,7 +90,7 @@ buildPythonPackage (finalAttrs: rec {
         "tests"
     ];
     disabledTestPaths = [
-        # Comparison tests are made for other packages that use BM25s as requirement, and aren't required
+        # Tests under tests/comparison and tests/comparison_full require additional dependencies.
         "tests/comparison"
         "tests/comparison_full"
     ];
