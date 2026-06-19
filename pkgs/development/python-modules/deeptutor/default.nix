@@ -51,7 +51,8 @@
     json-repair,
 
     # tests
-    versionCheckHook,
+    pytest-asyncio,
+    pytestCheckHook,
 }:
 
 buildPythonPackage (finalAttrs: {
@@ -124,11 +125,17 @@ buildPythonPackage (finalAttrs: {
         "json-repair"
     ];
 
-    nativeCheckInputs = [
-        versionCheckHook
+    nativeCheckInputs = [ 
+        pytestCheckHook
+        pytest-asyncio
     ];
-    versionCheckProgramArg = "version";
+    pytestFlagsArray = [
+        "--import-mode=importlib"
+    ];
     pythonImportsCheck = [ "deeptutor" ];
+    enabledTestPaths = [
+        "tests"
+    ];
 
     meta = {
         description = "Agent-native, Open-sourced Personalized Tutoring";
