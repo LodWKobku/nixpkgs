@@ -28,7 +28,7 @@
 }:
 
 buildPythonPackage (finalAttrs: {
-  pname = "perplexity";
+  pname = "perplexityai";
   version = "0.36.0";
   pyproject = true;
   __structuredAttrs = true;

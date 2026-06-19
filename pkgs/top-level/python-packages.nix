@@ -12299,7 +12299,7 @@ self: super: with self; {
 
   periodiq = callPackage ../development/python-modules/periodiq { };
 
-  perplexity = callPackage ../development/python-modules/perplexity { };
+  perplexityai = callPackage ../development/python-modules/perplexityai { };
 
   permissionedforms = callPackage ../development/python-modules/permissionedforms { };
 
