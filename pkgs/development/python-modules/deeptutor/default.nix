@@ -120,6 +120,10 @@ buildPythonPackage (finalAttrs: {
         json-repair
     ];
 
+    pythonRelaxDeps = [
+        "json-repair"
+    ];
+
     nativeCheckInputs = [
         versionCheckHook
     ];
