@@ -31,6 +31,10 @@ buildPythonPackage (finalAttrs: {
     pystemmer
   ];
 
+  pythonRelaxDeps = [
+    # bm25s
+    # pystemmer
+  ];
   pythonImportsCheck = [
     "llama_index_retrievers_bm25"
   ];

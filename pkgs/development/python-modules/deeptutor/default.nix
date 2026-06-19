@@ -1,68 +1,57 @@
 {
-  lib,
-  buildPythonPackage,
-  fetchFromGitHub,
+    lib,
+    buildPythonPackage,
+    fetchFromGitHub,
 
-  # build-system
-  setuptools,
+    # build-system
+    setuptools,
 
-  # dependencies
-  # CLI
-  pyyaml,
-  jinja2,
-  openai,
-  tiktoken,
-  anthropic,
-  dashscope,
-  aiohttp,
-  httpx,
-  requests,
-  nest-asyncio,
-  tenacity,
-  pydantic,
-  pydantic-settings,
-  aiosqlite,
-  llama-index,
-  pymupdf,
-  numpy,
-  arxiv,
-  python-docx,
-  openpyxl,
-  python-pptx,
-  pypdf,
-  defusedxml,
-  ddgs,
-  typer,
-  rich,
-  prompt-toolkit,
-  perplexity,
-  oauth-cli-kit,
+    # dependencies
+    pyyaml,
+    jinja2,
+    openai,
+    tiktoken,
+    aiohttp,
+    httpx,
+    requests,
+    ddgs,
+    nest-asyncio,
+    tenacity,
+    pydantic,
+    pydantic-settings,
+    aiosqlite,
+    typer,
+    rich,
+    prompt-toolkit,
+    pyte,
+    anthropic,
+    dashscope,
+    perplexityai,
+    oauth-cli-kit,
+    llama-index,
+    llama-index-retrievers-bm25,
+    pymupdf,
+    numpy,
+    arxiv,
+    python-docx,
+    openpyxl,
+    python-pptx,
+    pypdf,
+    pdfplumber,
+    reportlab,
+    defusedxml,
+    fastapi,
+    uvicorn,
+    websockets,
+    python-multipart,
+    bcrypt,
+    python-jose,
+    pocketbase,
+    loguru,
+    json-repair,
 
-  ## server
-  fastapi,
-  uvicorn,
-  websockets,
-  python-multipart,
-  bcrypt,
-  python-jose,
-  loguru,
-  json-repair,
-  ## tutorbot
-  croniter,
-  chardet,
-  mcp,
-  readability-lxml,
-  python-telegram-bot,
-  slack-sdk,
-  python-socketio,
-  msgpack,
-  python-socks,
-  socksio,
-  websocket-client,
-  zulip,
-
-  # tests
-  versionCheckHook,
+    # tests
+    versionCheckHook,
 }:
 
 buildPythonPackage (finalAttrs: {
@@ -87,22 +76,29 @@ buildPythonPackage (finalAttrs: {
     # llama-index-retrievers-bm25
 
     dependencies = [
-        # CLI
         pyyaml
         jinja2
         openai
         tiktoken
-        anthropic
-        dashscope
         aiohttp
         httpx
         requests
+        ddgs
         nest-asyncio
         tenacity
         pydantic
         pydantic-settings
         aiosqlite
+        typer
+        rich
+        prompt-toolkit
+        pyte
+        anthropic
+        dashscope
+        perplexityai
+        oauth-cli-kit
         llama-index
+        llama-index-retrievers-bm25
         pymupdf
         numpy
         arxiv
@@ -110,36 +106,18 @@ buildPythonPackage (finalAttrs: {
         openpyxl
         python-pptx
         pypdf
+        pdfplumber
+        reportlab
         defusedxml
-        ddgs
-        typer
-        rich
-        prompt-toolkit
-        perplexity
-        oauth-cli-kit
-
-        # Server
         fastapi
         uvicorn
         websockets
         python-multipart
         bcrypt
         python-jose
+        pocketbase
         loguru
         json-repair
-        # Tutorbot
-        croniter
-        chardet
-        mcp
-        readability-lxml
-        python-telegram-bot
-        slack-sdk
-        python-socketio
-        msgpack
-        python-socks
-        socksio
-        websocket-client
-        zulip
     ];
 
     nativeCheckInputs = [

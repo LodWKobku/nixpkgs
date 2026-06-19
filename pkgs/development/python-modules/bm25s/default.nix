@@ -24,6 +24,9 @@ buildPythonPackage (finalAttrs: rec {
     version = "0.3.9";
     pyproject = true;
 
+    # Fixed version of package in main.py
+    BM25S_VERSION = finalAttrs.version;
+
     src = fetchFromGitHub {
         owner = "xhluca";
         repo = "bm25s";
