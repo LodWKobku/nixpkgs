@@ -32,11 +32,10 @@ buildPythonPackage (finalAttrs: {
   ];
 
   pythonRelaxDeps = [
-    # bm25s
-    # pystemmer
+    "pystemmer"
   ];
   pythonImportsCheck = [
-    "llama_index_retrievers_bm25"
+    "llama_index.retrievers.bm25"
   ];
 
   passthru.updateScript = nix-update-script { };
