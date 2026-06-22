@@ -56,7 +56,8 @@
     lark-oapi,
     dingtalk-stream,
     slack-sdk,
-
+    slackify-markdown,
+    
     python-socketio,
     msgpack,
     python-socks,
@@ -145,7 +146,7 @@ buildPythonPackage (finalAttrs: rec {
             lark-oapi
             dingtalk-stream
             slack-sdk
-            # slackify-markdown
+            slackify-markdown
             # qq-botpy
             python-socketio
             msgpack
