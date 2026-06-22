@@ -57,7 +57,7 @@
     dingtalk-stream,
     slack-sdk,
     slackify-markdown,
-    
+    qq-botpy,
     python-socketio,
     msgpack,
     python-socks,
@@ -147,7 +147,7 @@ buildPythonPackage (finalAttrs: rec {
             dingtalk-stream
             slack-sdk
             slackify-markdown
-            # qq-botpy
+            qq-botpy
             python-socketio
             msgpack
             python-socks
