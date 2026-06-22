@@ -21028,6 +21028,8 @@ self: super: with self; {
 
   webthing-ws = callPackage ../development/python-modules/webthing-ws { };
 
+  wecom-aibot-python-sdk = callPackage ../development/python-modules/wecom-aibot-python-sdk { };
+
   weconnect = callPackage ../development/python-modules/weconnect { };
 
   weconnect-mqtt = callPackage ../development/python-modules/weconnect-mqtt { };
