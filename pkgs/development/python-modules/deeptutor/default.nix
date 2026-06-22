@@ -54,7 +54,7 @@
     python-telegram-bot,
     wecom-aibot-sdk,
     lark-oapi,
-    
+    dingtalk-stream,
     slack-sdk,
 
     python-socketio,
@@ -143,7 +143,7 @@ buildPythonPackage (finalAttrs: rec {
             python-telegram-bot
             wecom-aibot-sdk
             lark-oapi
-            # dingtalk-stream
+            dingtalk-stream
             slack-sdk
             # slackify-markdown
             # qq-botpy
