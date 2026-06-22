@@ -21036,7 +21036,7 @@ self: super: with self; {
 
   webthing-ws = callPackage ../development/python-modules/webthing-ws { };
 
-  wecom-aibot-python-sdk = callPackage ../development/python-modules/wecom-aibot-python-sdk { };
+  wecom-aibot-sdk = callPackage ../development/python-modules/wecom-aibot-sdk { };
 
   weconnect = callPackage ../development/python-modules/weconnect { };
 

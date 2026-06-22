@@ -15,7 +15,7 @@
 }:
 
 buildPythonPackage (finalAttrs: rec{
-  pname = "wecom-aibot-python-sdk";
+  pname = "wecom-aibot-sdk";
   version = "1.0.7";
   pyproject = true;
   __structuredAttrs = true;
