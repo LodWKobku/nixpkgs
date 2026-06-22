@@ -49,13 +49,27 @@
     pocketbase,
     loguru,
     json-repair,
+    # optional dependencies
+    mcp,
+    python-telegram-bot,
+
+    slack-sdk,
+
+    python-socketio,
+    msgpack,
+    python-socks,
+    socksio,
+    websocket-client,
+    zulip,
+    pyjwt,
+    qrcode,
 
     # tests
     pytest-asyncio,
     pytestCheckHook,
 }:
 
-buildPythonPackage (finalAttrs: {
+buildPythonPackage (finalAttrs: rec {
     pname = "deeptutor";
     version = "1.4.2";
     pyproject = true;
@@ -121,6 +135,26 @@ buildPythonPackage (finalAttrs: {
         json-repair
     ];
 
+    optional-dependencies = {
+        partners = [
+            mcp
+            python-telegram-bot
+            #wecom-aibot-sdk
+            #lark-oapi
+            # dingtalk-stream
+            slack-sdk
+            # slackify-markdown
+            # qq-botpy
+            python-socketio
+            msgpack
+            python-socks
+            socksio
+            websocket-client
+            zulip
+            pyjwt
+            qrcode
+        ];
+    };
     pythonRelaxDeps = [
         "json-repair"
     ];
@@ -128,7 +162,7 @@ buildPythonPackage (finalAttrs: {
     nativeCheckInputs = [ 
         pytestCheckHook
         pytest-asyncio
-    ];
+    ] ++ optional-dependencies.partners;
     pytestFlagsArray = [
         "--import-mode=importlib"
     ];
