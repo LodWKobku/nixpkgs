@@ -85,6 +85,7 @@ buildPythonPackage (finalAttrs: rec {
             rich
         ];
     };
+    
     # Tests
     pythonImportsCheck = [ "bm25s" ];
     # Package tests require all optional dependencies

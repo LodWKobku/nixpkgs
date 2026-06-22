@@ -8488,6 +8488,8 @@ self: super: with self; {
 
   lark = callPackage ../development/python-modules/lark { };
 
+  lark-oapi = callPackage ../development/python-modules/lark-oapi { };
+
   laspy = callPackage ../development/python-modules/laspy { };
 
   lastversion = callPackage ../development/python-modules/lastversion { };

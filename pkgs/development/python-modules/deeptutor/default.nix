@@ -52,7 +52,9 @@
     # optional dependencies
     mcp,
     python-telegram-bot,
-
+    wecom-aibot-sdk,
+    lark-oapi,
+    
     slack-sdk,
 
     python-socketio,
@@ -139,8 +141,8 @@ buildPythonPackage (finalAttrs: rec {
         partners = [
             mcp
             python-telegram-bot
-            #wecom-aibot-sdk
-            #lark-oapi
+            wecom-aibot-sdk
+            lark-oapi
             # dingtalk-stream
             slack-sdk
             # slackify-markdown
