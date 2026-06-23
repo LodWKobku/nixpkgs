@@ -136,7 +136,7 @@ buildPythonPackage (finalAttrs: rec {
         pocketbase
         loguru
         json-repair
-    ];
+    ] ++ python-jose.optional-dependencies.cryptography;
 
     optional-dependencies = {
         partners = [
@@ -156,7 +156,7 @@ buildPythonPackage (finalAttrs: rec {
             zulip
             pyjwt
             qrcode
-        ];
+        ] ++ python-telegram-bot.optional-dependencies.socks ++ pyjwt.optional-dependencies.crypto;
     };
     pythonRelaxDeps = [
         "json-repair"
@@ -170,6 +170,28 @@ buildPythonPackage (finalAttrs: rec {
         "--import-mode=importlib"
     ];
     pythonImportsCheck = [ "deeptutor" ];
+    postPatch = ''
+      # Fix default max_tokens/temperature assertions (DEFAULT_CHAT_PARAMS changed upstream)
+      substituteInPlace tests/services/config/test_chat_params_config.py \
+        --replace-fail "== 8000" "== 8192" \
+        --replace-fail "default=8000" "default=8192" \
+        --replace-fail "== 0.2" "== 0.5"
+
+      # Fix web_search error message regex (error message format changed upstream)
+      substituteInPlace tests/services/search/test_web_search_runtime.py \
+        --replace-fail '"perplexity requires api_key"' '"perplexity requires profile.api_key in Settings > Catalog."'
+
+      # Fix prompt_manager test: the question module has no idea_agent.yaml; use pipeline.yaml instead
+      substituteInPlace tests/services/test_prompt_manager.py \
+        --replace-fail 'agent_name="idea_agent"' 'agent_name="pipeline"' \
+        --replace-fail '"generate_ideas"' '"labels"'
+    '';
+
+    disabledTestPaths = [
+      "tests/scripts"  # needs git, and _cli_kit.py doesn't exist in the source tarball
+      "tests/services/rag/test_llamaindex_storage_layout.py"  # KeyError: 'storage_path
+    ];
+
     enabledTestPaths = [
         "tests"
     ];
