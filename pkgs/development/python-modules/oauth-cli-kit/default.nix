@@ -2,7 +2,7 @@
   lib,
   buildPythonPackage,
   fetchFromGitHub,
-  
+
   # Build system
   hatch-vcs,
   hatchling,
@@ -13,7 +13,7 @@
 
   # Tests
   pytest,
-  pytestCheckHook
+  pytestCheckHook,
 }:
 
 buildPythonPackage (finalAttrs: {
@@ -43,7 +43,7 @@ buildPythonPackage (finalAttrs: {
       pytest
     ];
   };
-  
+
   # Tests
   nativeCheckInputs = [ pytestCheckHook ];
   enabledTestPaths = [

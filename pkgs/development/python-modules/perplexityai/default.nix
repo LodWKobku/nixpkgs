@@ -24,7 +24,7 @@
   respx,
   time-machine,
   pytestCheckHook,
-  pytest-asyncio
+  pytest-asyncio,
 }:
 
 buildPythonPackage (finalAttrs: {

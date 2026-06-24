@@ -9099,7 +9099,9 @@ self: super: with self; {
     callPackage ../development/python-modules/llama-index-readers-weather
       { };
 
-  llama-index-retrievers-bm25 = callPackage ../development/python-modules/llama-index-retrievers-bm25 { };
+  llama-index-retrievers-bm25 =
+    callPackage ../development/python-modules/llama-index-retrievers-bm25
+      { };
 
   llama-index-vector-stores-chroma =
     callPackage ../development/python-modules/llama-index-vector-stores-chroma
@@ -11292,9 +11294,9 @@ self: super: with self; {
 
   oath = callPackage ../development/python-modules/oath { };
 
-  oauth-cli-kit = callPackage ../development/python-modules/oauth-cli-kit { };
-
   oathtool = callPackage ../development/python-modules/oathtool { };
+
+  oauth-cli-kit = callPackage ../development/python-modules/oauth-cli-kit { };
 
   oauth2-client = callPackage ../development/python-modules/oauth2-client { };
 
@@ -12303,9 +12305,9 @@ self: super: with self; {
 
   periodiq = callPackage ../development/python-modules/periodiq { };
 
-  perplexityai = callPackage ../development/python-modules/perplexityai { };
-
   permissionedforms = callPackage ../development/python-modules/permissionedforms { };
+
+  perplexityai = callPackage ../development/python-modules/perplexityai { };
 
   persim = callPackage ../development/python-modules/persim { };
 

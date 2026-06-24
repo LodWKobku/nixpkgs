@@ -14,7 +14,7 @@
   pytestCheckHook,
 }:
 
-buildPythonPackage (finalAttrs: rec{
+buildPythonPackage (finalAttrs: rec {
   pname = "wecom-aibot-sdk";
   version = "1.0.7";
   pyproject = true;
@@ -46,14 +46,14 @@ buildPythonPackage (finalAttrs: rec{
       pytest-asyncio
     ];
   };
-  
+
   nativeCheckInputs = [ pytestCheckHook ] ++ optional-dependencies.test;
   pythonImportsCheck = [
     "wecom_aibot_sdk"
   ];
   enabledTestPaths = [
     "tests"
-];
+  ];
 
   passthru.updateScript = nix-update-script { };
 

@@ -1,199 +1,203 @@
 {
-    lib,
-    buildPythonPackage,
-    fetchFromGitHub,
-    nix-update-script,
+  lib,
+  buildPythonPackage,
+  fetchFromGitHub,
+  nix-update-script,
 
-    # build-system
-    setuptools,
+  # build-system
+  setuptools,
 
-    # dependencies
-    pyyaml,
-    jinja2,
-    openai,
-    tiktoken,
-    aiohttp,
-    httpx,
-    requests,
-    ddgs,
-    nest-asyncio,
-    tenacity,
-    pydantic,
-    pydantic-settings,
-    aiosqlite,
-    typer,
-    rich,
-    prompt-toolkit,
-    pyte,
-    anthropic,
-    dashscope,
-    perplexityai,
-    oauth-cli-kit,
-    llama-index,
-    llama-index-retrievers-bm25,
-    pymupdf,
-    numpy,
-    arxiv,
-    python-docx,
-    openpyxl,
-    python-pptx,
-    pypdf,
-    pdfplumber,
-    reportlab,
-    defusedxml,
-    fastapi,
-    uvicorn,
-    websockets,
-    python-multipart,
-    bcrypt,
-    python-jose,
-    pocketbase,
-    loguru,
-    json-repair,
-    # optional dependencies
-    mcp,
-    python-telegram-bot,
-    wecom-aibot-sdk,
-    lark-oapi,
-    dingtalk-stream,
-    slack-sdk,
-    slackify-markdown,
-    qq-botpy,
-    python-socketio,
-    msgpack,
-    python-socks,
-    socksio,
-    websocket-client,
-    zulip,
-    pyjwt,
-    qrcode,
+  # dependencies
+  pyyaml,
+  jinja2,
+  openai,
+  tiktoken,
+  aiohttp,
+  httpx,
+  requests,
+  ddgs,
+  nest-asyncio,
+  tenacity,
+  pydantic,
+  pydantic-settings,
+  aiosqlite,
+  typer,
+  rich,
+  prompt-toolkit,
+  pyte,
+  anthropic,
+  dashscope,
+  perplexityai,
+  oauth-cli-kit,
+  llama-index,
+  llama-index-retrievers-bm25,
+  pymupdf,
+  numpy,
+  arxiv,
+  python-docx,
+  openpyxl,
+  python-pptx,
+  pypdf,
+  pdfplumber,
+  reportlab,
+  defusedxml,
+  fastapi,
+  uvicorn,
+  websockets,
+  python-multipart,
+  bcrypt,
+  python-jose,
+  pocketbase,
+  loguru,
+  json-repair,
+  # optional dependencies
+  mcp,
+  python-telegram-bot,
+  wecom-aibot-sdk,
+  lark-oapi,
+  dingtalk-stream,
+  slack-sdk,
+  slackify-markdown,
+  qq-botpy,
+  python-socketio,
+  msgpack,
+  python-socks,
+  socksio,
+  websocket-client,
+  zulip,
+  pyjwt,
+  qrcode,
 
-    # tests
-    git,
-    pytest-asyncio,
-    pytestCheckHook,
+  # tests
+  git,
+  pytest-asyncio,
+  pytestCheckHook,
 }:
 
 buildPythonPackage (finalAttrs: rec {
-    pname = "deeptutor";
-    version = "1.4.2";
-    pyproject = true;
+  pname = "deeptutor";
+  version = "1.4.2";
+  pyproject = true;
 
-    src = fetchFromGitHub {
-        owner = "HKUDS";
-        repo = "DeepTutor";
-        tag = "v${finalAttrs.version}";
-        hash = "sha256-7LwXsYAKTIj7jvuF5t0dzplVu8Ww+rh92cMJyFHHHrM=";
-    };
+  src = fetchFromGitHub {
+    owner = "HKUDS";
+    repo = "DeepTutor";
+    tag = "v${finalAttrs.version}";
+    hash = "sha256-7LwXsYAKTIj7jvuF5t0dzplVu8Ww+rh92cMJyFHHHrM=";
+  };
 
-    build-system = [ setuptools ];
+  build-system = [ setuptools ];
 
-    # TODO:
-    # dingtalk-stream
-    # slackify-markdown
-    # qq-botpy
-    # pocketbase
-    # llama-index-retrievers-bm25
+  # TODO:
+  # dingtalk-stream
+  # slackify-markdown
+  # qq-botpy
+  # pocketbase
+  # llama-index-retrievers-bm25
 
-    dependencies = [
-        pyyaml
-        jinja2
-        openai
-        tiktoken
-        aiohttp
-        httpx
-        requests
-        ddgs
-        nest-asyncio
-        tenacity
-        pydantic
-        pydantic-settings
-        aiosqlite
-        typer
-        rich
-        prompt-toolkit
-        pyte
-        anthropic
-        dashscope
-        perplexityai
-        oauth-cli-kit
-        llama-index
-        llama-index-retrievers-bm25
-        pymupdf
-        numpy
-        arxiv
-        python-docx
-        openpyxl
-        python-pptx
-        pypdf
-        pdfplumber
-        reportlab
-        defusedxml
-        fastapi
-        uvicorn
-        websockets
-        python-multipart
-        bcrypt
-        python-jose
-        pocketbase
-        loguru
-        json-repair
-    ] ++ python-jose.optional-dependencies.cryptography;
+  dependencies = [
+    pyyaml
+    jinja2
+    openai
+    tiktoken
+    aiohttp
+    httpx
+    requests
+    ddgs
+    nest-asyncio
+    tenacity
+    pydantic
+    pydantic-settings
+    aiosqlite
+    typer
+    rich
+    prompt-toolkit
+    pyte
+    anthropic
+    dashscope
+    perplexityai
+    oauth-cli-kit
+    llama-index
+    llama-index-retrievers-bm25
+    pymupdf
+    numpy
+    arxiv
+    python-docx
+    openpyxl
+    python-pptx
+    pypdf
+    pdfplumber
+    reportlab
+    defusedxml
+    fastapi
+    uvicorn
+    websockets
+    python-multipart
+    bcrypt
+    python-jose
+    pocketbase
+    loguru
+    json-repair
+  ]
+  ++ python-jose.optional-dependencies.cryptography;
 
-    optional-dependencies = {
-        partners = [
-            mcp
-            python-telegram-bot
-            wecom-aibot-sdk
-            lark-oapi
-            dingtalk-stream
-            slack-sdk
-            slackify-markdown
-            qq-botpy
-            python-socketio
-            msgpack
-            python-socks
-            socksio
-            websocket-client
-            zulip
-            pyjwt
-            qrcode
-        ] ++ python-telegram-bot.optional-dependencies.socks ++ pyjwt.optional-dependencies.crypto;
-    };
-    pythonRelaxDeps = [
-        "json-repair"
+  optional-dependencies = {
+    partners = [
+      mcp
+      python-telegram-bot
+      wecom-aibot-sdk
+      lark-oapi
+      dingtalk-stream
+      slack-sdk
+      slackify-markdown
+      qq-botpy
+      python-socketio
+      msgpack
+      python-socks
+      socksio
+      websocket-client
+      zulip
+      pyjwt
+      qrcode
+    ]
+    ++ python-telegram-bot.optional-dependencies.socks
+    ++ pyjwt.optional-dependencies.crypto;
+  };
+  pythonRelaxDeps = [
+    "json-repair"
+  ];
+
+  nativeCheckInputs = [
+    pytestCheckHook
+    pytest-asyncio
+    git
+  ]
+  ++ optional-dependencies.partners;
+  pytestFlagsArray = [
+    "--import-mode=importlib"
+  ];
+  pythonImportsCheck = [ "deeptutor" ];
+  enabledTestPaths = [
+    "tests"
+  ];
+  disabledTestPaths = [
+    "tests/scripts/test_cli_kit.py" # Missing _cli_kit.py file
+    "tests/services/rag/test_llamaindex_storage_layout.py" # KeyError: 'storage_path
+    "tests/services/config/test_chat_params_config.py" # Strict params requrements
+    "tests/services/search/test_web_search_runtime.py" # Regex error
+    "tests/services/test_prompt_manager.py" # Importing prompt fails becouse of wrong naming
+  ];
+
+  passthru.updateScript = nix-update-script { };
+
+  meta = {
+    description = "Agent-native, Open-sourced Personalized Tutoring";
+    mainProgram = "deeptutor";
+    homepage = "https://github.com/HKUDS/DeepTutor";
+    changelog = "https://github.com/HKUDS/DeepTutor/releases/tag/${finalAttrs.src.tag}";
+    license = lib.licenses.asl20;
+    maintainers = with lib.maintainers; [
+      LodWKobku
     ];
-    
-    nativeCheckInputs = [ 
-        pytestCheckHook
-        pytest-asyncio
-        git
-    ] ++ optional-dependencies.partners;
-    pytestFlagsArray = [
-        "--import-mode=importlib"
-    ];
-    pythonImportsCheck = [ "deeptutor" ];
-    enabledTestPaths = [
-        "tests"
-    ];
-    disabledTestPaths = [
-      "tests/scripts/test_cli_kit.py"  # Missing _cli_kit.py file
-      "tests/services/rag/test_llamaindex_storage_layout.py"  # KeyError: 'storage_path
-      "tests/services/config/test_chat_params_config.py" # Strict params requrements
-      "tests/services/search/test_web_search_runtime.py" # Regex error
-      "tests/services/test_prompt_manager.py" # Importing prompt fails becouse of wrong naming
-    ];
-    
-    passthru.updateScript = nix-update-script { };
-
-    meta = {
-        description = "Agent-native, Open-sourced Personalized Tutoring";
-        mainProgram = "deeptutor";
-        homepage = "https://github.com/HKUDS/DeepTutor";
-        changelog = "https://github.com/HKUDS/DeepTutor/releases/tag/${finalAttrs.src.tag}";
-        license = lib.licenses.asl20;
-        maintainers = with lib.maintainers; [
-            LodWKobku
-        ];
-    };
+  };
 })

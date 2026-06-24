@@ -46,18 +46,18 @@ buildPythonPackage (finalAttrs: rec {
 
   optional-dependencies = {
     aiohttp = [
-        aiohttp
+      aiohttp
     ];
     fastapi = [
-        fastapi
-        uvicorn
+      fastapi
+      uvicorn
     ];
     flask = [
-        flask
+      flask
     ];
     test = [
-        pytest
-        pytest-asyncio
+      pytest
+      pytest-asyncio
     ];
   };
 
@@ -73,7 +73,7 @@ buildPythonPackage (finalAttrs: rec {
     "lark_oapi/channel/tests"
   ];
   disabledTestPaths = [
-    "lark_oapi/channel/tests/test_client_lifecycle.py" #Inconsistent test
+    "lark_oapi/channel/tests/test_client_lifecycle.py" # Inconsistent test
   ];
 
   passthru.updateScript = nix-update-script { };

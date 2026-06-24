@@ -7,7 +7,7 @@
   scipy,
 }:
 
-buildPythonPackage (finalAttrs: rec {
+buildPythonPackage (finalAttrs: {
   pname = "pytrec-eval";
   version = "0.5";
   pyproject = true;

@@ -30,7 +30,7 @@ buildPythonPackage (finalAttrs: {
   dependencies = [
     markdown-it-py
   ];
-  
+
   nativeCheckInputs = [ pytestCheckHook ];
   pythonImportsCheck = [
     "slackify_markdown"

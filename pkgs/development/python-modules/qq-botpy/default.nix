@@ -34,7 +34,7 @@ buildPythonPackage (finalAttrs: {
     pre-commit
     pyyaml
   ];
-  
+
   preCheck = ''
     # Fix wrong test file name
     cp tests/".test(demo).yaml" tests/.test.yaml
