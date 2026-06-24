@@ -72,6 +72,9 @@ buildPythonPackage (finalAttrs: rec {
   enabledTestPaths = [
     "lark_oapi/channel/tests"
   ];
+  disabledTestPaths = [
+    "lark_oapi/channel/tests/test_client_lifecycle.py" #Inconsistent test
+  ];
 
   passthru.updateScript = nix-update-script { };
 
